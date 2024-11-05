@@ -4,11 +4,6 @@ SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 
 #bash $SHELL_FOLDER/../common/kernel_6.6.sh
 
-cp -rf devices/common/patches/rootfstargz.patch.main devices/common/patches/rootfstargz.patch
-cp -rf devices/common/patches/qca-ssdk.patch.main devices/common/patches/qca-ssdk.patch
-cp -rf devices/common/patches/ebpf.patch.main devices/common/patches/ebpf.patch
-cp -rf devices/common/patches/nonshared.patch.main devices/common/patches/nonshared.patch
-
 git_clone_path master https://github.com/coolsnowwolf/lede target/linux/x86/files target/linux/x86/patches-6.6
 
 wget -N https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/x86/base-files/etc/board.d/02_network -P target/linux/x86/base-files/etc/board.d/
