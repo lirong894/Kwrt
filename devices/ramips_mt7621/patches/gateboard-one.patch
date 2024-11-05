@@ -11,12 +11,12 @@ Subject: [PATCH] update
  .../mt7621/base-files/etc/board.d/02_network  |   3 +
  .../mt7621/base-files/lib/upgrade/platform.sh |   6 +
  .../mt7621/base-files/sbin/fixup-mac-address  |   4 +
- target/linux/ramips/mt7621/config-5.15        |   1 +
+ target/linux/ramips/mt7621/config-6.6        |   1 +
  ...spi-nor-Add-support-for-Puya-p25d40h.patch |  47 +++
  9 files changed, 501 insertions(+), 1 deletion(-)
  create mode 100755 scripts/gen-rddependencies.sh
  create mode 100644 target/linux/ramips/dts/mt7621_hatlab_gateboard-one.dts
- create mode 100644 target/linux/ramips/patches-5.15/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
+ create mode 100644 target/linux/ramips/patches-6.6/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
 
 diff --git a/scripts/gen-rddependencies.sh b/scripts/gen-rddependencies.sh
 new file mode 100755
@@ -48,7 +48,7 @@ index 77b82d5334c22..caf5099d1a116 100644
 -FEATURES:=squashfs gpio
 +FEATURES:=squashfs gpio boot-part rootfs-part
  
- KERNEL_PATCHVER:=5.15
+ KERNEL_PATCHVER:=6.6
  
 diff --git a/target/linux/ramips/dts/mt7621_hatlab_gateboard-one.dts b/target/linux/ramips/dts/mt7621_hatlab_gateboard-one.dts
 new file mode 100644
@@ -546,10 +546,10 @@ index dad15c584216d..375db51647b70 100755
  	*)
  		echo "Unsupported board"
  		exit 1
-diff --git a/target/linux/ramips/mt7621/config-5.15 b/target/linux/ramips/mt7621/config-5.15
+diff --git a/target/linux/ramips/mt7621/config-6.6 b/target/linux/ramips/mt7621/config-6.6
 index 05e4c1ce87799..b93159ed079ef 100644
---- a/target/linux/ramips/mt7621/config-5.15
-+++ b/target/linux/ramips/mt7621/config-5.15
+--- a/target/linux/ramips/mt7621/config-6.6
++++ b/target/linux/ramips/mt7621/config-6.6
 @@ -156,6 +156,7 @@ CONFIG_MTD_PHYSMAP=y
  CONFIG_MTD_RAW_NAND=y
  CONFIG_MTD_ROUTERBOOT_PARTS=y
@@ -558,11 +558,11 @@ index 05e4c1ce87799..b93159ed079ef 100644
  CONFIG_MTD_SPI_NOR=y
  CONFIG_MTD_SPI_NOR_USE_VARIABLE_ERASE=y
  CONFIG_MTD_SPLIT_FIT_FW=y
-diff --git a/target/linux/ramips/patches-5.15/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch b/target/linux/ramips/patches-5.15/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
+diff --git a/target/linux/ramips/patches-6.6/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch b/target/linux/ramips/patches-6.6/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
 new file mode 100644
 index 0000000000000..88ae591fca963
 --- /dev/null
-+++ b/target/linux/ramips/patches-5.15/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
++++ b/target/linux/ramips/patches-6.6/406-mtd-spi-nor-Add-support-for-Puya-p25d40h.patch
 @@ -0,0 +1,47 @@
 +--- a/drivers/mtd/spi-nor/Makefile
 ++++ b/drivers/mtd/spi-nor/Makefile

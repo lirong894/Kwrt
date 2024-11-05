@@ -3,11 +3,11 @@
 shopt -s extglob
 SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 
-bash $SHELL_FOLDER/../common/kernel_6.6.sh
+#bash $SHELL_FOLDER/../common/kernel_6.6.sh
 
 rm -rf package/boot
 
-rm -rf target/linux/generic/!(*-5.15) target/linux/rockchip
+rm -rf target/linux/generic target/linux/rockchip
 
 git_clone_path master https://github.com/coolsnowwolf/lede package/boot target/linux/rockchip
 git_clone_path master https://github.com/coolsnowwolf/lede mv target/linux/generic
