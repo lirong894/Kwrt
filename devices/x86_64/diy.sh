@@ -2,7 +2,12 @@
 
 SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 
-bash $SHELL_FOLDER/../common/kernel_6.6.sh
+#bash $SHELL_FOLDER/../common/kernel_6.6.sh
+
+cp -rf devices/common/patches/rootfstargz.patch.main devices/common/patches/rootfstargz.patch
+cp -rf devices/common/patches/qca-ssdk.patch.main devices/common/patches/qca-ssdk.patch
+cp -rf devices/common/patches/ebpf.patch.main devices/common/patches/ebpf.patch
+cp -rf devices/common/patches/nonshared.patch.main devices/common/patches/nonshared.patch
 
 git_clone_path master https://github.com/coolsnowwolf/lede target/linux/x86/files target/linux/x86/patches-6.6
 
@@ -20,20 +25,4 @@ mv -f tmp/r81* feeds/kiddin9/
 
 sed -i 's/256/1024/g' target/linux/x86/image/Makefile
 
-echo '
-CONFIG_ACPI=y
-CONFIG_X86_ACPI_CPUFREQ=y
-CONFIG_NR_CPUS=512
-CONFIG_MMC=y
-CONFIG_MMC_BLOCK=y
-CONFIG_SDIO_UART=y
-CONFIG_MMC_TEST=y
-CONFIG_MMC_DEBUG=y
-CONFIG_MMC_SDHCI=y
-CONFIG_MMC_SDHCI_ACPI=y
-CONFIG_MMC_SDHCI_PCI=y
-CONFIG_DRM_I915=y
-' >> ./target/linux/x86/config-6.6
-
-sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 
