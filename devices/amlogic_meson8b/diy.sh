@@ -14,5 +14,5 @@ git_clone_path master https://github.com/coolsnowwolf/lede target/linux/amlogic
 
 rm -rf package/utils/bzip2
 
-sed -i "s/wpad-openssl/wpad-basic-mbedtls/" target/linux/amlogic/image/Makefilecp: cannot overwrite directory '/www/wwwroot/dl.openwrt.ai/firmware/cpasu/openwrt/staging_dir/target-aarch64_cortex-a53_musl/root-mediatek/./var' with non-directory
+sed -i "s/wpad-openssl/wpad-basic-mbedtls/" target/linux/amlogic/image/Makefile
 
