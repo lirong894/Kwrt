@@ -10,7 +10,7 @@ rm -rf package/boot target/linux/generic target/linux/rockchip
 git_clone_path master https://github.com/coolsnowwolf/lede package/boot target/linux/rockchip target/linux/generic
 
 wget -N https://github.com/istoreos/istoreos/raw/istoreos-22.03/target/linux/rockchip/patches-5.10/305-r2s-pwm-fan.patch -P target/linux/rockchip/patches-6.6/
-wget -N https://github.com/openwrt/openwrt/raw/refs/heads/main/target/linux/rockchip/Makefile -P target/linux/rockchip/
+wget -N https://github.com/openwrt/openwrt/raw/refs/heads/openwrt-24.10/target/linux/rockchip/Makefile -P target/linux/rockchip/
 
 wget -N https://github.com/coolsnowwolf/lede/raw/master/include/kernel-6.6 -P include/
 
