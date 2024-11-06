@@ -39,7 +39,7 @@ sed -i -e 's,wpad-openssl,wpad-basic-mbedtls,g' target/linux/rockchip/image/armv
 
 wget -N https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/kernel/linux/modules/video.mk -P package/kernel/linux/modules/
 
-wget -N https://github.com/coolsnowwolf/lede/raw/master/include/kernel-6.1 -P include/
+wget -N https://github.com/coolsnowwolf/lede/raw/master/include/kernel-6.6 -P include/
 
 sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += fdisk lsblk kmod-drm-rockchip/' target/linux/rockchip/Makefile
 
