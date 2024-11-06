@@ -5,21 +5,17 @@ SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 
 #bash $SHELL_FOLDER/../common/kernel_6.6.sh
 
-rm -rf package/boot
+rm -rf package/boot target/linux/generic target/linux/rockchip
 
-rm -rf target/linux/generic target/linux/rockchip
-
-git_clone_path master https://github.com/coolsnowwolf/lede package/boot target/linux/rockchip
-git_clone_path master https://github.com/coolsnowwolf/lede mv target/linux/generic
+git_clone_path master https://github.com/coolsnowwolf/lede package/boot target/linux/rockchip target/linux/generic
 
 git_clone_path master https://github.com/coolsnowwolf/lede target/linux/generic/hack-6.6
-rm -rf target/linux/generic/hack-6.6/767-net-phy-realtek*
 
 wget -N https://github.com/istoreos/istoreos/raw/istoreos-22.03/target/linux/rockchip/patches-5.10/305-r2s-pwm-fan.patch -P target/linux/rockchip/patches-6.6/
 
 wget -N https://github.com/coolsnowwolf/lede/raw/master/include/kernel-6.6 -P include/
 
-rm -rf target/linux/generic/hack-6.6/{410-block-fit-partition-parser.patch,724-net-phy-aquantia*,720-net-phy-add-aqr-phys.patch}
+rm -rf target/linux/generic/hack-6.6/{410-block-fit-partition-parser.patch,724-net-phy-aquantia*,720-net-phy-add-aqr-phys.patch,767-net-phy-realtek*}
 
 sed -i "/KernelPackage,ptp/d" package/kernel/linux/modules/other.mk
 
