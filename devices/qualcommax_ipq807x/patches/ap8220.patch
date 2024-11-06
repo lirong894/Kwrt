@@ -33,8 +33,7 @@ index 6406d001311f21..05b0ff8c125f16 100644
  define Device/buffalo_wxr-5950ax12
  	$(call Device/FitImage)
  	DEVICE_VENDOR := Buffalo
-diff --git a/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network b/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
-index 7c630e096fc381..aca67ade9a57f8 100644
+
 --- a/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
 +++ b/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
 @@ -11,6 +11,9 @@ ipq807x_setup_interfaces()
@@ -44,21 +43,21 @@ index 7c630e096fc381..aca67ade9a57f8 100644
 +	aliyun,ap8220)
 +		ucidef_set_interfaces_lan_wan "eth1" "eth0"
 +		;;
- 	buffalo,wxr-5950ax12|\
- 	dynalink,dl-wrx36|\
- 	xiaomi,ax9000)
+ 	asus,rt-ax89x)
+ 		ucidef_set_interfaces_lan_wan "10g-sfp 10g-copper lan1 lan2 lan3 lan4 lan5 lan6 lan7 lan8" "wan"
+ 		;;
 diff --git a/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh b/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
 index 4c8a38c261c972..b0c42dde058a5d 100644
 --- a/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
-@@ -43,6 +43,10 @@ platform_pre_upgrade() {
- 
- platform_do_upgrade() {
- 	case "$(board_name)" in
+@@ -140,6 +140,10 @@ platform_do_upgrade() {
+ 	netgear,wax630)
+ 		nand_do_upgrade "$1"
+ 		;;
 +	aliyun,ap8220)
 +		CI_UBIPART="rootfs"
 +		nand_do_upgrade "$1"
 +		;;
- 	buffalo,wxr-5950ax12)
- 		CI_KERN_UBIPART="rootfs"
- 		CI_ROOT_UBIPART="user_property"
+ 	asus,rt-ax89x)
+ 		CI_UBIPART="UBI_DEV"
+ 		CI_KERNPART="linux"
