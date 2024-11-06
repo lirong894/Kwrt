@@ -19,8 +19,8 @@
  $(eval $(call generate-ipq-wifi-package,zte_mf287,ZTE MF287))
  $(eval $(call generate-ipq-wifi-package,zte_mf287plus,ZTE MF287Plus))
 
---- a/target/linux/ipq807x/image/generic.mk
-+++ b/target/linux/ipq807x/image/generic.mk
+--- a/target/linux/qualcommax/image/ipq807x.mk
++++ b/target/linux/qualcommax/image/ipq807x.mk
 @@ -37,6 +37,35 @@ define Device/buffalo_wxr-5950ax12
  endef
  TARGET_DEVICES += buffalo_wxr-5950ax12
@@ -58,8 +58,8 @@
  	$(call Device/FitImage)
  	$(call Device/UbiFit)
 
---- a/target/linux/ipq807x/base-files/etc/board.d/02_network
-+++ b/target/linux/ipq807x/base-files/etc/board.d/02_network
+--- a/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
++++ b/target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
 @@ -31,6 +31,12 @@ ipq807x_setup_interfaces()
  	qnap,301w)
  		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 10g-2" "10g-1"
@@ -74,8 +74,8 @@
  	xiaomi,ax3600)
  		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" "wan"
 
---- a/target/linux/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
-+++ b/target/linux/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+--- a/target/linux/qualcommax/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
++++ b/target/linux/qualcommax/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
 @@ -18,6 +18,8 @@ case "$FIRMWARE" in
  	redmi,ax6|\
  	xiaomi,ax3600|\
@@ -86,8 +86,8 @@
  		caldata_extract "0:art" 0x1000 0x20000
  		;;
 
---- a/target/linux/ipq807x/base-files/lib/upgrade/platform.sh
-+++ b/target/linux/ipq807x/base-files/lib/upgrade/platform.sh
+--- a/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
++++ b/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
 @@ -51,6 +51,12 @@ platform_do_upgrade() {
  		nand_do_restore_config || nand_do_upgrade_failed
  		buffalo_upgrade_optvol

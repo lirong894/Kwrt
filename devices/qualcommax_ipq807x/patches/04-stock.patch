@@ -1,5 +1,5 @@
---- a/target/linux/ipq807x/base-files/etc/init.d/bootcount
-+++ b/target/linux/ipq807x/base-files/etc/init.d/bootcount
+--- a/target/linux/qualcommax/ipq807x/base-files/etc/init.d/bootcount
++++ b/target/linux/qualcommax/ipq807x/base-files/etc/init.d/bootcount
 @@ -9,5 +9,13 @@ boot() {
  		# Unset changed flag after sysupgrade complete
  		fw_setenv changed
@@ -16,8 +16,8 @@
  }
  
 
---- a/target/linux/ipq807x/base-files/lib/upgrade/platform.sh
-+++ b/target/linux/ipq807x/base-files/lib/upgrade/platform.sh
+--- a/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
++++ b/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
 @@ -83,20 +83,29 @@ platform_do_upgrade() {
  	redmi,ax6|\
  	xiaomi,ax3600|\
@@ -62,7 +62,7 @@
  	*)
 
 --- /dev/null
-+++ b/target/linux/ipq807x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata
++++ b/target/linux/qualcommax/ipq807x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata
 @@ -0,0 +1,20 @@
 +#!/bin/sh
 +

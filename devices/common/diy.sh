@@ -13,7 +13,7 @@ sed -i '/	refresh_config();/d' scripts/feeds
 ./scripts/feeds install -a -p kiddin9 -f
 ./scripts/feeds install -a
 
-rm -rf package/base-files
+rm -rf package/base-files package/network/utils/xdp-tools
 mv -f feeds/kiddin9/base-files package/
 
 echo "$(date +"%s")" >version.date
