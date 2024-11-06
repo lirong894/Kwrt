@@ -62,21 +62,6 @@ index 01a86c7b19fca..c0a781c1e21b4 100644
 +config_foreach ubootenv_add_app_config
  
  exit 0
-diff --git a/target/linux/ipq806x/base-files/etc/board.d/02_network b/target/linux/ipq806x/base-files/etc/board.d/02_network
-index 8dd52452b1739..df27cbde7c5d8 100644
---- a/target/linux/ipq806x/base-files/etc/board.d/02_network
-+++ b/target/linux/ipq806x/base-files/etc/board.d/02_network
-@@ -89,6 +89,10 @@ nokia,ac400i |\
- ubnt,unifi-ac-hd)
- 	ucidef_set_interface_lan "eth0 eth1"
- 	;;
-+xiaomi,r3d)
-+	ucidef_add_switch "switch0" \
-+		"1:lan:3" "2:lan:2" "3:lan:1" "6@eth1" "5:wan" "0@eth0"
-+	;;
- zyxel,nbg6817)
- 	hw_mac_addr=$(mtd_get_mac_ascii 0:appsblenv ethaddr)
- 	ucidef_add_switch "switch0" \
 diff --git a/target/linux/ipq806x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata b/target/linux/ipq806x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata
 index 4c5019cf5bd24..aa8ed06aae4b3 100644
 --- a/target/linux/ipq806x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata
