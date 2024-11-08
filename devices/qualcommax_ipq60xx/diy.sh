@@ -8,7 +8,7 @@ rm -rf package/kernel/mac80211 package/firmware/ipq-wifi package/firmware/ath11k
 
 git_clone_path openwrt-24.10 https://github.com/LiBwrt-op/openwrt-6.x package/kernel/mac80211 package/firmware/ipq-wifi package/firmware/ath11k-firmware package/boot/uboot-envtools target/linux/qualcommax
 
-rm -rf target/linux/qualcommax/patches-6.6/0600-1-qca-nss-ecm-support-CORE.patch
+rm -rf target/linux/qualcommax/patches-6.6/{0600-1-qca-nss-ecm-support-CORE.patch,0600-7-qca-nss-ecm-fix-IPv6-user-route-change-event-calls.patch}
 
 
 
