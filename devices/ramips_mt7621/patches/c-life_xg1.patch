@@ -46,14 +46,14 @@ diff --git a/package/boot/uboot-envtools/files/ramips b/package/boot/uboot-envto
 index 2942fb6af807a..4323a2574c55b 100644
 --- a/package/boot/uboot-envtools/files/ramips
 +++ b/package/boot/uboot-envtools/files/ramips
-@@ -70,6 +70,7 @@
+@@ -70,6 +70,7 @@ zte,mf283plus)
+ asus,rt-ax53u|\
+ asus,rt-ax54|\
+ belkin,rt1800|\
++c-life,xg1|\
+ elecom,wrc-x1800gs|\
  h3c,tx1800-plus|\
  h3c,tx1801-plus|\
- h3c,tx1806|\
-+c-life,xg1|\
- jcg,q20|\
- linksys,e7350|\
- netgear,wax202|\
 
 --- a/target/linux/ramips/dts/mt7621.dtsi
 +++ b/target/linux/ramips/dts/mt7621.dtsi

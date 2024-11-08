@@ -1,20 +1,43 @@
 --- a/target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
 +++ b/target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
-@@ -54,40 +54,16 @@
+@@ -54,62 +54,16 @@
  				read-only;
  			};
  
 -			partition@40000 {
 -				label = "Bdata";
--				reg = <0x40000 0x10000>;
--				read-only;
--			};
--
--			factory: partition@50000 {
 +			factory: partition@40000 {
- 				label = "factory";
++				label = "factory";
+ 				reg = <0x40000 0x10000>;
+ 				read-only;
+ 			};
+ 
+ 			partition@50000 {
+-				label = "factory";
 -				reg = <0x50000 0x10000>;
 -				read-only;
+-
+-				nvmem-layout {
+-					compatible = "fixed-layout";
+-					#address-cells = <1>;
+-					#size-cells = <1>;
+-
+-					eeprom_factory_0: eeprom@0 {
+-						reg = <0x0 0x400>;
+-					};
+-
+-					eeprom_factory_8000: eeprom@8000 {
+-						reg = <0x8000 0x200>;
+-					};
+-
+-					macaddr_factory_e000: macaddr@e000 {
+-						reg = <0xe000 0x6>;
+-					};
+-
+-					macaddr_factory_e006: macaddr@e006 {
+-						reg = <0xe006 0x6>;
+-					};
+-				};
 -			};
 -
 -			partition@60000 {
@@ -32,12 +55,10 @@
 -			partition@80000 {
 -				label = "overlay";
 -				reg = <0x80000 0x100000>;
-+				reg = <0x40000 0x10000>;
- 				read-only;
- 			};
- 
--			firmware: partition@180000 {
-+			partition@50000 {
+-				read-only;
+-			};
+-
+-			partition@180000 {
  				compatible = "denx,uimage";
  				label = "firmware";
 -				reg = <0x180000 0xe80000>;
