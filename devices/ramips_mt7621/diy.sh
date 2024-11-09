@@ -10,3 +10,5 @@ sed -i "s/DEVICE_MODEL := HC5962$/DEVICE_MODEL := HC5962 \/ B70/" target/linux/r
 sh -c "curl -sfL https://github.com/openwrt/openwrt/commit/2e6d19ee32399e37c7545aefc57d41541a406d55.patch | patch -d './' -p1 --forward" || true
 
 sed -i '/# start dockerd/,/# end dockerd/d' .config
+
+sed -i "s/KERNEL_SIZE := 3145728/KERNEL_SIZE := 3306564/" target/linux/ramips/image/mt7621.mk
